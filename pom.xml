@@ -116,20 +116,22 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
 
-<!--            <plugin>-->
-<!--                <groupId>com.querydsl</groupId>-->
-<!--                <artifactId>querydsl-maven-plugin</artifactId>-->
-<!--                <executions>-->
-<!--                    <phase>compile</phase>-->
-<!--                    <goals>-->
-<!--                        <goal>jpa-export</goal>-->
-<!--                    </goals>-->
-<!--                </executions>-->
-<!--                <configuration>-->
-<!--                    <targetFolder>target/generated-sources/kotlin</targetFolder>-->
-<!--                    <package>com.bill.blog.entity</package>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
+            <plugin>
+                <groupId>com.mysema.maven</groupId>
+                <artifactId>apt-maven-plugin</artifactId>
+                <version>1.1.3</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>process</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>target/generated-sources/java</outputDirectory>
+                            <processor>com.querydsl.apt.jpa.JPAAnnotationProcessor</processor>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
 
             <plugin>
                 <groupId>org.jetbrains.kotlin</groupId>
