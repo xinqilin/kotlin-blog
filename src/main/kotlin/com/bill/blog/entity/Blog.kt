@@ -19,27 +19,27 @@ class Blog {
 
     var blogTitle: String = ""
         set(blogTitle) {
-            field = blogTitle?.trim { it <= ' ' }
+            field = blogTitle.trim { it <= ' ' }
         }
 
     var blogSubUrl: String = ""
         set(blogSubUrl) {
-            field = blogSubUrl?.trim { it <= ' ' }
+            field = blogSubUrl.trim { it <= ' ' }
         }
 
     var blogCoverImage: String = ""
         set(blogCoverImage) {
-            field = blogCoverImage?.trim { it <= ' ' }
+            field = blogCoverImage.trim { it <= ' ' }
         }
 
     var blogCategoryName: String = ""
         set(blogCategoryName) {
-            field = blogCategoryName?.trim { it <= ' ' }
+            field = blogCategoryName.trim { it <= ' ' }
         }
 
     var blogTags: String = ""
         set(blogTags) {
-            field = blogTags?.trim { it <= ' ' }
+            field = blogTags.trim { it <= ' ' }
         }
 
     var blogStatus: Byte = 0
@@ -58,7 +58,7 @@ class Blog {
 
     var blogContent: String = ""
         set(blogContent) {
-            field = blogContent?.trim { it <= ' ' }
+            field = blogContent.trim { it <= ' ' }
         }
 
 }

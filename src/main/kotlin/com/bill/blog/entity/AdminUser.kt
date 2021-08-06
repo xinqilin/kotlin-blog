@@ -16,17 +16,17 @@ class AdminUser {
 
     var loginUserName: String = ""
         set(loginUserName) {
-            field = loginUserName?.trim { it <= ' ' }
+            field = loginUserName.trim { it <= ' ' }
         }
 
     var loginPassword: String = ""
         set(loginPassword) {
-            field = loginPassword?.trim { it <= ' ' }
+            field = loginPassword.trim { it <= ' ' }
         }
 
     var nickName: String = ""
         set(nickName) {
-            field = nickName?.trim { it <= ' ' }
+            field = nickName.trim { it <= ' ' }
         }
 
     var locked: Byte = 0
