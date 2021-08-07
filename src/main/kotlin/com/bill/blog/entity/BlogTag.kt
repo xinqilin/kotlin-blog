@@ -8,7 +8,7 @@ import javax.persistence.*
  */
 @Entity
 @Table("blog_tag")
-class BLogTag : SoftDeletedModel() {
+class BlogTag : SoftDeletedModel() {
 
     @Id
     @GeneratedValue(GenerationType.IDENTITY)
