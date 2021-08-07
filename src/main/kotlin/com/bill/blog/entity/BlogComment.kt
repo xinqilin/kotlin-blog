@@ -1,7 +1,6 @@
 package com.bill.blog.entity
 
-import com.fasterxml.jackson.annotation.JsonFormat
-import java.util.*
+import com.bill.blog.vo.SoftDeletedModel
 import javax.persistence.*
 
 /**
@@ -10,7 +9,7 @@ import javax.persistence.*
 
 @Entity
 @Table("blog_comment")
-class BlogComment {
+class BlogComment : SoftDeletedModel() {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -49,11 +48,6 @@ class BlogComment {
             field = replyContent.trim { it <= ' ' }
         }
 
-
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-    var createTime: Date = Date()
-
     var commentStatus: Byte = 0
 
-    var isDeleted: Byte = 0
 }

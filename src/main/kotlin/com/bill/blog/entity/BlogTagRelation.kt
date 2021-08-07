@@ -1,7 +1,6 @@
 package com.bill.blog.entity
 
-import com.fasterxml.jackson.annotation.JsonFormat
-import java.util.*
+import com.bill.blog.vo.SoftDeletedModel
 import javax.persistence.*
 
 /**
@@ -9,7 +8,7 @@ import javax.persistence.*
  */
 @Entity
 @Table("blog_tag_relation")
-class BlogTagRelation {
+class BlogTagRelation : SoftDeletedModel(){
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,6 +18,4 @@ class BlogTagRelation {
 
     var tagId: Int = 0
 
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-    var createTime: Date = Date()
 }

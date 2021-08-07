@@ -1,5 +1,6 @@
 package com.bill.blog.entity
 
+import com.bill.blog.vo.SoftDeletedModel
 import javax.persistence.*
 
 /**
@@ -8,7 +9,7 @@ import javax.persistence.*
 
 @Entity
 @Table("admin_user")
-class AdminUser {
+class AdminUser : SoftDeletedModel() {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

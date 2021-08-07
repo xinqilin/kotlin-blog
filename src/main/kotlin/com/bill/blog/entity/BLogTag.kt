@@ -1,12 +1,23 @@
 package com.bill.blog.entity
 
-import javax.persistence.Entity
-import javax.persistence.Table
+import com.bill.blog.vo.SoftDeletedModel
+import javax.persistence.*
 
 /**
  * @author Bill.Lin on 2021/8/4
  */
 @Entity
 @Table("blog_tag")
-class BLogTag {
+class BLogTag : SoftDeletedModel() {
+
+    @Id
+    @GeneratedValue(GenerationType.IDENTITY)
+    var tagId: Int = 0
+
+    var tagName: String = ""
+        set(tagName) {
+            field = tagName.trim { it <= ' ' }
+        }
+
+
 }

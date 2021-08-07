@@ -1,6 +1,8 @@
 package com.bill.blog.entity
 
+import com.bill.blog.vo.SoftDeletedModel
 import javax.persistence.Entity
+import javax.persistence.Id
 import javax.persistence.Table
 
 /**
@@ -8,5 +10,17 @@ import javax.persistence.Table
  */
 @Entity
 @Table("blog_config")
-class BlogConfig {
+class BlogConfig : SoftDeletedModel() {
+
+    @Id
+    var configKey: String = ""
+        set(configKey) {
+            field = configKey.trim { it <= ' ' }
+        }
+
+    var configValue: String = ""
+        set(configValue) {
+            field = configValue.trim { it <= ' ' }
+        }
+
 }
