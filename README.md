@@ -16,3 +16,4 @@
     DROP TABLE IF EXISTS `blog_tag`;
     DROP TABLE IF EXISTS `blog_tag_relation`;
 ```
+
