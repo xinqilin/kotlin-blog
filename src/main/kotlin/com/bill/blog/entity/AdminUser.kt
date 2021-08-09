@@ -2,6 +2,9 @@ package com.bill.blog.entity
 
 import com.bill.blog.vo.SoftDeletedModel
 import com.fasterxml.jackson.annotation.JsonFormat
+import org.springframework.data.annotation.CreatedDate
+import org.springframework.data.annotation.LastModifiedDate
+import org.springframework.data.jpa.domain.support.AuditingEntityListener
 import java.util.*
 import javax.persistence.*
 
@@ -11,17 +14,27 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "admin_user")
-data class AdminUser(
+@EntityListeners(AuditingEntityListener::class)
+class AdminUser(
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        var adminUserId: Int? = null,
-        var loginUserName: String = "",
-        var loginPassword: String = "",
+        @Column(name = "id")
+        var id: Int? = null,
+        @Column(name = "user_name", columnDefinition = "varchar(30) NOT NULL DEFAULT ''")
+        var userName: String = "",
+        @Column(name = "password", columnDefinition = "varchar(30) NOT NULL DEFAULT ''")
+        var password: String = "",
+        @Column(name = "nick_name", columnDefinition = "varchar(50) NOT NULL DEFAULT ''")
         var nickName: String = "",
-        var isDeleted: Byte = 0,
+        @Column(name = "deleted", columnDefinition = "TINYINT(1) DEFAULT 0", nullable = false)
+        var deleted: Byte = 0,
         @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+        @CreatedDate
+        @Column(name = "create_time", columnDefinition = "DATETIME", updatable = false)
         var createTime: Date = Date(),
         @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+        @LastModifiedDate
+        @Column(name = "update_time", columnDefinition = "DATETIME")
         var updateTime: Date = Date()
 )

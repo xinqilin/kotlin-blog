@@ -9,8 +9,8 @@ import javax.persistence.*
  * @author Bill.Lin on 2021/8/4
  */
 
-@Entity
-@Table(name = "blog_comment")
+//@Entity
+//@Table(name = "blog_comment")
 data class BlogComment(
 
         @Id

@@ -1,17 +1,20 @@
 package com.bill.blog.service
 
-import com.bill.blog.entity.AdminUser
+import com.bill.blog.dto.AdminUserDto
 
 /**
  * @author Bill.Lin on 2021/8/5
  */
+
 interface AdminUserService {
 
-    fun login(userName: String, password: String): AdminUser?
+    fun register(adminUserDto: AdminUserDto): AdminUserDto
 
-    fun getUserDetailById(loginUserId: Int): AdminUser?
+    fun login(userName: String, password: String): AdminUserDto?
 
-    fun updatePassword(loginUserId: Int, oldPassword: String, newPassword: String): Boolean
+    fun getUserDetailById(id: Int): AdminUserDto?
 
-    fun updateUserName(loginUserId: Int, loginUserName: String, nickName: String): Boolean
+    fun updatePassword(id: Int, oldPassword: String, newPassword: String): Boolean
+
+    fun updateUserName(id: Int, userName: String, nickName: String): Boolean
 }

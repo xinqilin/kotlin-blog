@@ -8,8 +8,8 @@ import javax.persistence.*
 /**
  * @author Bill.Lin on 2021/8/4
  */
-@Entity
-@Table(name = "blog")
+//@Entity
+//@Table(name = "blog")
 data class Blog(
 
         @Id

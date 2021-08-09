@@ -10,8 +10,8 @@ import javax.persistence.Table
 /**
  * @author Bill.Lin on 2021/8/4
  */
-@Entity
-@Table(name = "blog_config")
+//@Entity
+//@Table(name = "blog_config")
 data class BlogConfig(
 
         @Id
