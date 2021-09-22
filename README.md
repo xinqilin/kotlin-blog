@@ -2,6 +2,8 @@
 
 ### RESET SQL
 
+docker run --name mysql -d -p 3306:3306 -e "TZ=Asia/Taipei" -e MYSQL_ROOT_PASSWORD=mysql mysql:8
+
 ```mysql
     SELECT concat('DROP TABLE IF EXISTS `', table_name, '`;')
     FROM information_schema.tables
