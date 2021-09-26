@@ -17,11 +17,10 @@ import javax.persistence.*
 data class BlogConfig(
 
         @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        @Column(name = "id")
+        @Column(name = "config_key")
         var configKey: String = "",
 
-        @Column(name = "config_value", columnDefinition = "varchar(1000) NOT NULL DEFAULT ''")
+        @Column(name = "config_value", columnDefinition = "TEXT NOT NULL")
         var configValue: String = "",
 
         @Column(name = "deleted", columnDefinition = "TINYINT(1) DEFAULT 0", nullable = false)
