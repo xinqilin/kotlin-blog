@@ -20,4 +20,6 @@ class AdminUserController(
     @PostMapping("/user")
     fun addAdminUser(@RequestBody adminUserDto: AdminUserDto) = adminUserService.register(adminUserDto)
 
+    @PostMapping("/login")
+    fun login(@RequestBody adminUserDto: AdminUserDto) = adminUserService.login(adminUserDto.userName, adminUserDto.password)
 }

@@ -1,7 +1,8 @@
 package com.bill.blog.entity
 
-import com.bill.blog.vo.SoftDeletedModel
+import com.bill.blog.dto.AdminUserDto
 import com.fasterxml.jackson.annotation.JsonFormat
+import org.hibernate.annotations.Where
 import org.springframework.data.annotation.CreatedDate
 import org.springframework.data.annotation.LastModifiedDate
 import org.springframework.data.jpa.domain.support.AuditingEntityListener
@@ -14,6 +15,7 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "admin_user")
+@Where(clause = "deleted = false")
 @EntityListeners(AuditingEntityListener::class)
 data class AdminUser(
 

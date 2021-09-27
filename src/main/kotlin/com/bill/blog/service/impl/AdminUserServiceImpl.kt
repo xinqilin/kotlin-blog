@@ -5,6 +5,7 @@ import com.bill.blog.entity.AdminUser
 import com.bill.blog.repository.AdminUserRepository
 import com.bill.blog.service.AdminUserService
 import org.springframework.stereotype.Service
+import java.lang.RuntimeException
 
 /**
  * @author Bill.Lin on 2021/8/9
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service
 class AdminUserServiceImpl(
         val adminUserRepository: AdminUserRepository
 ) : AdminUserService {
+
     override fun register(adminUserDto: AdminUserDto) =
             AdminUser(
                     null,
@@ -25,7 +27,10 @@ class AdminUserServiceImpl(
             }
 
     override fun login(userName: String, password: String): AdminUserDto? {
-        TODO("Not yet implemented")
+        val adminUser = adminUserRepository.findByUserNameAndPassword(userName, password)
+        if (adminUser.isPresent)
+            return AdminUserDto().convertFromEntity(adminUser.get())
+        return null
     }
 
     override fun getUserDetailById(id: Int): AdminUserDto? {
