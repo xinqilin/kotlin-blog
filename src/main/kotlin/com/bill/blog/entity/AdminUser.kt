@@ -45,4 +45,11 @@ data class AdminUser(
         @LastModifiedDate
         @Column(name = "update_time", columnDefinition = "DATETIME")
         var updateTime: Date = Date()
-)
+) {
+    fun toDto() = AdminUserDto(
+            id = id!!,
+            userName = userName,
+            password = password,
+            nickName = nickName
+    )
+}

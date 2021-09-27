@@ -11,7 +11,7 @@ import java.util.*
  * @author Bill.Lin on 2021/8/5
  */
 @Repository
-interface AdminUserRepository : JpaRepository<AdminUser, Long>, JpaSpecificationExecutor<AdminUser> {
+interface AdminUserRepository : JpaRepository<AdminUser, Int>, JpaSpecificationExecutor<AdminUser> {
 
     @Query
     fun findByUserNameAndPassword(userName: String, password: String): Optional<AdminUser>

@@ -22,26 +22,38 @@ class AdminUserServiceImpl(
                     adminUserDto.password.trim(),
                     adminUserDto.nickName.trim()
             ).run {
-                val saveAdminUser = adminUserRepository.save(this)
-                AdminUserDto(saveAdminUser.userName, saveAdminUser.password, saveAdminUser.nickName)
+                adminUserRepository.save(this).toDto()
             }
 
-    override fun login(userName: String, password: String): AdminUserDto? {
-        val adminUser = adminUserRepository.findByUserNameAndPassword(userName, password)
-        if (adminUser.isPresent)
-            return AdminUserDto().convertFromEntity(adminUser.get())
-        return null
-    }
+    override fun login(userName: String, password: String): AdminUserDto =
+            adminUserRepository.findByUserNameAndPassword(userName, password)
+                    .map { it.toDto() }
+                    .orElseThrow { RuntimeException() }
 
-    override fun getUserDetailById(id: Int): AdminUserDto? {
-        TODO("Not yet implemented")
-    }
+    override fun getUserDetailById(id: Int): AdminUserDto =
+            adminUserRepository.findById(id)
+                    .map { it.toDto() }
+                    .orElseThrow { RuntimeException() }
 
-    override fun updatePassword(id: Int, oldPassword: String, newPassword: String): Boolean {
-        TODO("Not yet implemented")
-    }
+    override fun updatePassword(id: Int, oldPassword: String, newPassword: String) =
+            adminUserRepository.findById(id)
+                    .orElseThrow { RuntimeException() }
+                    .let {
+                        if (it.password != oldPassword) throw RuntimeException()
+                        it
+                    }.run {
+                        this.password = newPassword
+                        adminUserRepository.save(this)
+                        true
+                    }
 
-    override fun updateUserName(id: Int, userName: String, nickName: String): Boolean {
-        TODO("Not yet implemented")
-    }
+    override fun updateUserName(id: Int, userName: String, nickName: String) =
+            adminUserRepository.findById(id)
+                    .orElseThrow { RuntimeException() }
+                    .run {
+                        this.userName = userName
+                        this.nickName = nickName
+                        adminUserRepository.save(this)
+                        true
+                    }
 }
