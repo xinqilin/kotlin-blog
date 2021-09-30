@@ -11,8 +11,4 @@ data class AdminUserDto(
         var userName: String = "",
         var password: String = "",
         var nickName: String = "",
-) {
-    fun toEntity() = AdminUser(
-//TODO:
-    )
-}
+)
