@@ -25,9 +25,4 @@ spring:
       ddl-auto: update
 #    show-sql: true
 
-app:
-  jwt:
-    secret: JWTSecretKey
-    expiration:
-      milliseconds: 604800000
 
