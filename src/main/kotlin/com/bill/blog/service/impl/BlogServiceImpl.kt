@@ -6,10 +6,12 @@ import com.bill.blog.repository.BlogRepository
 import com.bill.blog.service.BlogService
 import org.springframework.data.domain.Page
 import org.springframework.data.jpa.domain.Specification
+import org.springframework.stereotype.Service
 
 /**
  * @author Bill.Lin on 2021/9/30
  */
+@Service
 class BlogServiceImpl(
         val blogRepository: BlogRepository
 ) : BlogService {

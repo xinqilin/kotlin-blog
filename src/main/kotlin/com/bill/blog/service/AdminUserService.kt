@@ -5,7 +5,6 @@ import com.bill.blog.dto.AdminUserDto
 /**
  * @author Bill.Lin on 2021/8/5
  */
-
 interface AdminUserService {
 
     fun register(adminUserDto: AdminUserDto): AdminUserDto
