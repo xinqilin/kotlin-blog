@@ -1,6 +1,6 @@
 package com.bill.blog.repository
 
-import com.bill.blog.entity.BlogCategory
+import com.bill.blog.entity.Category
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor
 import org.springframework.stereotype.Repository
@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository
  * @author Bill.Lin on 2021/8/5
  */
 @Repository
-interface BlogCategoryRepository : JpaRepository<BlogCategory, Long>, JpaSpecificationExecutor<BlogCategory> {
+interface CategoryRepository : JpaRepository<Category, Long>, JpaSpecificationExecutor<Category> {
 }

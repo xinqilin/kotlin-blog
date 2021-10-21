@@ -6,5 +6,5 @@ import org.springframework.stereotype.Service
  * @author Bill.Lin on 2021/10/5
  */
 @Service
-class BlogLinkServiceImpl {
+class LinkServiceImpl {
 }

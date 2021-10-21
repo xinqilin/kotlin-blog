@@ -12,16 +12,29 @@ import javax.persistence.*
  * @author Bill.Lin on 2021/8/4
  */
 @Entity
-@Table(name = "blog_config")
+@Table(name = "blog_link")
 @EntityListeners(AuditingEntityListener::class)
-data class BlogConfig(
+data class Link(
 
         @Id
-        @Column(name = "config_key")
-        var configKey: String = "",
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @Column(name = "id")
+        var linkId: Int? = null,
 
-        @Column(name = "config_value", columnDefinition = "TEXT NOT NULL")
-        var configValue: String = "",
+        @Column(name = "link_type", columnDefinition = "TINYINT(1) DEFAULT 0", nullable = false)
+        var linkType: Byte = 0,
+
+        @Column(name = "link_name", columnDefinition = "varchar(200) NOT NULL DEFAULT ''")
+        var linkName: String = "",
+
+        @Column(name = "link_url", columnDefinition = "varchar(500) NOT NULL DEFAULT ''")
+        var linkUrl: String = "",
+
+        @Column(name = "link_description", columnDefinition = "varchar(1000) NOT NULL DEFAULT ''")
+        var linkDescription: String = "",
+
+        @Column(name = "link_rank", columnDefinition = "integer NOT NULL DEFAULT 0")
+        var linkRank: Int = 0,
 
         @Column(name = "deleted", columnDefinition = "TINYINT(1) DEFAULT 0", nullable = false)
         var isDeleted: Byte = 0,

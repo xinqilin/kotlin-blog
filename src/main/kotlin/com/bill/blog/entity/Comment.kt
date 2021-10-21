@@ -15,7 +15,7 @@ import javax.persistence.*
 @Entity
 @Table(name = "blog_comment")
 @EntityListeners(AuditingEntityListener::class)
-data class BlogComment(
+data class Comment(
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)

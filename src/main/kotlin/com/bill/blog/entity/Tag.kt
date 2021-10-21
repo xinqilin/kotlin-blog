@@ -14,7 +14,7 @@ import javax.persistence.*
 @Entity
 @Table(name = "blog_tag")
 @EntityListeners(AuditingEntityListener::class)
-data class BlogTag(
+data class Tag(
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
